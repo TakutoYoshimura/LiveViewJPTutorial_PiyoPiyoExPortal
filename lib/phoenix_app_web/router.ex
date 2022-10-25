@@ -18,7 +18,9 @@ defmodule PhoenixAppWeb.Router do
   scope "/", PhoenixAppWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # modify root endpoint
+    # get "/", PageController, :index
+    live "/", MessageLive.Index, :index
 
     # add message default routing
     live "/messages", MessageLive.Index, :index

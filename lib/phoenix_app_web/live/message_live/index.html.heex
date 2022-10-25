@@ -1,5 +1,3 @@
-<h1>Listing Messages</h1>
-
 <%= if @live_action in [:new, :edit] do %>
   <.modal return_to={Routes.message_index_path(@socket, :index)}>
     <.live_component
@@ -13,31 +11,38 @@
   </.modal>
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Display name</th>
-      <th>Message</th>
-      <th>Deleted at</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="messages">
-    <%= for message <- @messages do %>
-      <tr id={"message-#{message.id}"}>
-        <td><%= message.display_name %></td>
-        <td><%= message.message %></td>
-        <td><%= message.deleted_at %></td>
-
-        <td>
-          <span><%= live_redirect "Show", to: Routes.message_show_path(@socket, :show, message) %></span>
-          <span><%= live_patch "Edit", to: Routes.message_index_path(@socket, :edit, message) %></span>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: message.id, data: [confirm: "Are you sure?"] %></span>
-        </td>
+<!-- add new contents from here -->
+<div class="bg-white rounded-md pr-8 pl-8 pt-4 pb-8 mb-6">
+  <table class="w-full mt-4 mb-6 border-collapse border border-slate-400">
+    <thead>
+      <tr>
+        <th class="border border-slate-300 bg-slate-100 p-1 py-2">お名前</th>
+        <th class="border border-slate-300 bg-slate-100 p-1 py-2">感想</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody id="messages">
+      <%= for message <- @messages do %>
+        <tr id={"message-#{message.id}"}>
+          <td class="border border-slate-300 px-1 py-2"><%= message.display_name %></td>
+          <td class="border border-slate-300 px-1 py-2"><%= message.message %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<span><%= live_patch "New Message", to: Routes.message_index_path(@socket, :new) %></span>
+  <span><%= live_patch "感想を投稿する", to: Routes.message_index_path(@socket, :new), class: ["btn", "btn-success"] %></span>
+  <span><a href="/all" class="btn btn-link">全部の感想を見る</a></span>
+</div>
+
+<div class="bg-white rounded-md bg-yellow-100 pr-8 pl-8 pt-4 pb-8 mb-6">
+  <h2 class="text-2xl font-bold text-slate-600 mb-4">About "LiveView JP"</h2>
+  <div class="mb-4">
+    LiveView JPは、プログラミング言語Elixirで記述されたWeb開発フレームワークPhoenixのサーバーサイドレンダリング機能LiveViewを用いた開発、技術の情報交換コミュニティです。<br />
+  </div>
+  <div>
+    LiveView JPは毎月1回の頻度で勉強会を開催しています<br />
+    <a class="text-blue-600 visited:text-purple-600 underline" href="https://liveviewjp.connpass.com/">connpass</a>からぜひご参加ください。
+  </div>
+</div>
+
+
