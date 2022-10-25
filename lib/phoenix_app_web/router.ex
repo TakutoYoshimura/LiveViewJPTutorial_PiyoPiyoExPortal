@@ -21,6 +21,7 @@ defmodule PhoenixAppWeb.Router do
     # modify root endpoint
     # get "/", PageController, :index
     live "/", MessageLive.Index, :index
+    live "/:mode", MessageLive.Index, :index #<-- add here
 
     # add message default routing
     live "/messages", MessageLive.Index, :index

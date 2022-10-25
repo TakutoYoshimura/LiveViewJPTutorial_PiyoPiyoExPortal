@@ -1,6 +1,4 @@
 <div>
-  <h2><%= @title %></h2>
-
   <.form
     let={f}
     for={@changeset}
@@ -9,20 +7,26 @@
     phx-change="validate"
     phx-submit="save">
   
-    <%= label f, :display_name %>
-    <%= text_input f, :display_name %>
-    <%= error_tag f, :display_name %>
-  
-    <%= label f, :message %>
-    <%= text_input f, :message %>
-    <%= error_tag f, :message %>
-  
-    <%= label f, :deleted_at %>
-    <%= datetime_select f, :deleted_at %>
-    <%= error_tag f, :deleted_at %>
-  
+    <div class="mb-4">
+      <div class="mb-2">呼ばれたい名前</div>
+      <div>
+        <%= text_input f, :display_name, class: ~w(input input-bordered input-accent) %>
+        <%= error_tag f, :display_name %>
+      </div>
+    </div>
+    <div class="mb-4">
+      <div class="mb-2">
+        イベントは楽しかったでしょうか？<br />
+        piyopiyo.exにやってほしいことがあれば教えてください
+      </div>
+      <div>
+        <%= textarea f, :message, class: ~w(textarea textarea-accent w-10/12) %>
+        <%= error_tag f, :message %>
+      </div>
+    </div>
+    
     <div>
-      <%= submit "Save", phx_disable_with: "Saving..." %>
+      <%= submit "感想を投稿", phx_disable_with: "Saving..." , class: ["btn", "btn-success"]%>
     </div>
   </.form>
 </div>

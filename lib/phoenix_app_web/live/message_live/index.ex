@@ -5,8 +5,8 @@ defmodule PhoenixAppWeb.MessageLive.Index do
   alias PhoenixApp.Messages.Message
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, assign(socket, :messages, list_messages())}
+  def mount(params, _session, socket) do
+    {:ok, assign(socket, :messages, list_messages(params))} # <-- modify here
   end
 
   @impl true
@@ -40,7 +40,16 @@ defmodule PhoenixAppWeb.MessageLive.Index do
     {:noreply, assign(socket, :messages, list_messages())}
   end
 
-  defp list_messages do
+  # delete default function
+  #defp list_messages do
+  #  Messages.list_messages()
+  #end
+
+  # add list_messges/1 function
+  defp list_messages(%{"mode" => mode}) do
+    Messages.list_messages(mode)
+  end
+  defp list_messages(_ \\ %{}) do
     Messages.list_messages()
   end
 end
