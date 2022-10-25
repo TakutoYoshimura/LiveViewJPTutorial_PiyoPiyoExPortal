@@ -1,17 +1,6 @@
-# Phoenix On Replit
 
-To start your Phoenix server:
+![LiveViewJP_logo](https://user-images.githubusercontent.com/45676464/197772947-47997390-9b06-404d-9a32-bb9d8da984d5.png)
 
-* Click the Run Button
-* View Phoenix server in the webview
+# piyopiyo.exポータルチュートリアル～感想投稿サイト構築を例にLiveView+tailwindcssの基礎を学ぶ～
 
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+[piyopiyo.exポータルチュートリアル～感想投稿サイト構築を例にLiveView+tailwindcssの基礎を学ぶ～](https://qiita.com/tuchiro/items/050e6b86afc35a843a7c)
