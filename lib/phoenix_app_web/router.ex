@@ -19,6 +19,14 @@ defmodule PhoenixAppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    # add message default routing
+    live "/messages", MessageLive.Index, :index
+    live "/messages/new", MessageLive.Index, :new
+    live "/messages/:id/edit", MessageLive.Index, :edit
+
+    live "/messages/:id", MessageLive.Show, :show
+    live "/messages/:id/show/edit", MessageLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
