@@ -28,7 +28,7 @@ defmodule PhoenixAppWeb.MessageLive.Index do
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Listing Messages")
+#    |> assign(:page_title, "Listing Messages") # <-- delete here
     |> assign(:message, nil)
   end
 
