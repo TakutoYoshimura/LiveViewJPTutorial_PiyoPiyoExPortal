@@ -12,29 +12,33 @@
 <% end %>
 
 <!-- add new contents from here -->
-<div class="bg-white rounded-md pr-8 pl-8 pt-4 pb-8 mb-6">
-  <table class="w-full mt-4 mb-6 border-collapse border border-slate-400">
+<!-- modify here bg-white => bg-gray-100 -->
+<div class="bg-gray-700 rounded-md pr-8 pl-8 pt-4 pb-8 mb-6">
+<!-- modify here border-white  text-white -->
+  <table class="w-full mt-4 mb-6 border-collapse border border-white text-white">
     <thead>
       <tr>
-        <th class="border border-slate-300 bg-slate-100 p-1 py-2">お名前</th>
-        <th class="border border-slate-300 bg-slate-100 p-1 py-2">感想</th>
+        <th class="border bg-slate-100 p-1 py-2">お名前</th>
+        <th class="border bg-slate-100 p-1 py-2">感想</th>
       </tr>
     </thead>
     <tbody id="messages">
       <%= for message <- @messages do %>
         <tr id={"message-#{message.id}"}>
-          <td class="border border-slate-300 px-1 py-2"><%= message.display_name %></td>
-          <td class="border border-slate-300 px-1 py-2"><%= message.message %></td>
+          <td class="border px-2 py-2 "><%= message.display_name %></td>
+          <td class="border px-2 py-2 "><%= message.message %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
   <span><%= live_patch "感想を投稿する", to: Routes.message_index_path(@socket, :new), class: ["btn", "btn-success"] %></span>
-  <span><a href="/all" class="btn btn-link">全部の感想を見る</a></span>
+  <!-- modify here add text-blue-300 -->
+  <span><a href="/all" class="btn btn-link text-blue-300">全部の感想を見る</a></span>
 </div>
 
-<div class="bg-white rounded-md bg-yellow-100 pr-8 pl-8 pt-4 pb-8 mb-6">
+<!-- modify here bg-yellow-100 => bg-gray-100-->
+<div class="bg-white rounded-md bg-gray-100 pr-8 pl-8 pt-4 pb-8 mb-6">
   <h2 class="text-2xl font-bold text-slate-600 mb-4">About "LiveView JP"</h2>
   <div class="mb-4">
     LiveView JPは、プログラミング言語Elixirで記述されたWeb開発フレームワークPhoenixのサーバーサイドレンダリング機能LiveViewを用いた開発、技術の情報交換コミュニティです。<br />
